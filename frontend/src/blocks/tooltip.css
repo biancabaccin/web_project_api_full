@@ -1,0 +1,83 @@
+.tooltip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip_opened {
+  display: flex;
+}
+
+.tooltip__container {
+  max-width: 430px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tooltip__close-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+
+.tooltip__close-button:hover {
+  opacity: 60%;
+}
+
+.tooltip__sucess-icon {
+  margin: 60px 150px 32px;
+}
+
+.tooltip__fail-icon {
+  margin: 60px 150px 32px;
+}
+
+.tooltip__message {
+  max-width: 358px;
+  width: 100%;
+  color: #000000;
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+@media screen and (max-width: 550px) {
+  .tooltip__container {
+    max-width: 300px;
+  }
+
+  .tooltip__close-button {
+    top: -70px;
+    right: 125px;
+  }
+
+  .tooltip__sucess-icon {
+    margin: 50px 80px 25px;
+  }
+
+  .tooltip__fail-icon {
+    margin: 50px 80px 25px;
+  }
+
+  .tooltip__message {
+    max-width: 244px;
+    font-size: 20px;
+  }
+}

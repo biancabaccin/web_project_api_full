@@ -1,0 +1,140 @@
+.header {
+  max-width: 880px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo {
+  margin: 45px 0 41px;
+}
+
+.header__right-box {
+  margin: 50px 0 45px;
+}
+
+.header__link {
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 14px;
+  padding-right: 30px;
+}
+
+.header__link:hover {
+  opacity: 60%;
+}
+
+.header__link:visited {
+  color: #ffffff;
+}
+
+.header__logged-in-info {
+  display: flex;
+  gap: 56px;
+  font-size: 18px;
+}
+
+.header__user-email {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.header__signout-button {
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  color: #a9a9a9;
+}
+
+.header__list-button {
+  display: none;
+}
+
+.header__line {
+  width: 99%;
+  border: 1px solid #545454;
+  opacity: 70%;
+  margin: 0 auto;
+}
+
+.header__mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 800px) {
+  .header {
+    max-width: 700px;
+  }
+
+  .header__logo {
+    padding-left: 30px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .header {
+    max-width: 600px;
+  }
+
+  .header__user-email {
+    display: none;
+  }
+
+  .header__signout-button {
+    display: none;
+  }
+
+  .header__list-button {
+    display: block;
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    padding-right: 30px;
+  }
+
+  .header__list-button:hover {
+    opacity: 60%;
+  }
+
+  .header__mobile-menu {
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0 46px;
+    gap: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+.header__mobile-email {
+  font-size: 18px;
+}
+
+.header__mobile-signout {
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  color: #a9a9a9;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 319px) {
+  .header {
+    max-width: 320px;
+  }
+
+  .header__logo {
+    margin: 28px 0 32px 27px;
+  }
+}

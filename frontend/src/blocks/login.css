@@ -1,0 +1,101 @@
+.login {
+  max-width: 358px;
+  width: 100%;
+  height: 361px;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login__title {
+  color: #ffffff;
+  font-size: 24px;
+  margin: 60px 0 50px;
+}
+
+.login__fildset {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login__input {
+  color: #cccccc;
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  height: 29px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  padding-bottom: 5px;
+}
+
+.login__input:focus {
+  outline: none;
+}
+
+.login__input:last-child {
+  margin-bottom: 0;
+}
+
+input::placeholder {
+  color: #cccccc;
+  margin-bottom: 13px;
+}
+
+.login__submit-button {
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 216px;
+  padding: 14px 0;
+}
+
+.login__submit-button:hover {
+  opacity: 80%;
+}
+
+.login__register-button {
+  color: #ffffff;
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 15px;
+  align-self: center;
+}
+
+.login__register-button:hover {
+  opacity: 60%;
+}
+
+@media screen and (max-width: 550px) {
+  .login {
+    max-width: 260px;
+  }
+
+  .login__title {
+    font-size: 20px;
+    margin: 40px 0;
+  }
+
+  .login__fildset {
+    margin-bottom: 173px;
+  }
+
+  .login__submit-button {
+    font-size: 16px;
+  }
+
+  .login__register-button {
+    font-size: 12px;
+    margin-top: 20px;
+  }
+}
