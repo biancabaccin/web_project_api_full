@@ -82,7 +82,14 @@ module.exports.createUser = (req, res) => {
 
 module.exports.updateUserProfile = (req, res) => {
   const { name, about } = req.body;
-  const userId = req.user._id;
+  const { userId } = req.params;
+  const currentUserId = req.user._id;
+
+  if (String(userId) !== String(currentUserId)) {
+    return res.status(403).json({
+      message: "Você só pode editar seu próprio perfil",
+    });
+  }
 
   User.findByIdAndUpdate(
     userId,
