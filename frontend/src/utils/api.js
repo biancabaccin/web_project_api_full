@@ -7,7 +7,10 @@ class Api {
   _request(endpoint, options = {}) {
     return fetch(`${this._baseUrl}${endpoint}`, {
       method: options.method || "GET",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        Authorization: `Bearer ${this.token || localStorage.getItem("jwt")}`,
+      },
       body: options.body ? JSON.stringify(options.body) : undefined,
     }).then(this._handleResponse);
   }
@@ -17,6 +20,10 @@ class Api {
       return Promise.reject(`Erro: ${res.status}`);
     }
     return res.json().catch(() => ({}));
+  }
+
+  setToken(token) {
+    this.token = token;
   }
 
   // API
@@ -92,7 +99,6 @@ class Api {
 const api = new Api({
   baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
   headers: {
-    authorization: "5539db1e-c173-456f-82b8-5cc813b2c1c7",
     "Content-Type": "application/json",
   },
 });

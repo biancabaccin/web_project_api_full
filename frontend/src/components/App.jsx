@@ -26,6 +26,8 @@ function App() {
   const [isLoadingAvatar, setIsLoadingAvatar] = useState(false);
   const [isLoadingAddCard, setIsLoadingAddCard] = useState(false);
 
+  const [token, setToken] = useState("");
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const navigate = useNavigate();
@@ -139,10 +141,13 @@ function App() {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    if (token) {
+    const savedToken = localStorage.getItem("jwt");
+
+    if (savedToken) {
+      setToken(savedToken);
+
       apiAuth
-        .checkToken(token)
+        .checkToken(savedToken)
         .then((user) => {
           setIsLoggedIn(true);
           setUserEmail(user.email);
@@ -151,13 +156,8 @@ function App() {
         })
         .catch((err) => {
           console.error(err);
-          if (err.status === 400) {
-            console.log("Token não fornecido ou fornecido em formato errado");
-          } else if (err.status === 401) {
-            console.log("O token fornecido é inválido");
-          }
-
           localStorage.removeItem("jwt");
+          setToken("");
           setIsLoggedIn(false);
         });
     }
@@ -174,6 +174,10 @@ function App() {
       const data = await apiAuth.login(email, password);
       if (data.token) {
         localStorage.setItem("jwt", data.token);
+        setToken(data.token);
+
+        api.setToken(data.token);
+
         setIsLoggedIn(true);
         setUserEmail(email);
 
@@ -201,6 +205,8 @@ function App() {
     setIsLoggedIn(false);
     setUserEmail("");
     localStorage.removeItem("jwt");
+    setToken("");
+
     navigate("/signin");
   };
 
