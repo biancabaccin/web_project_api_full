@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { login, createUser } = require("./controllers/users");
 const auth = require("./middlewares/auth");
+const errorHandler = require("./middlewares/errorHandler");
 
 const app = express();
 
@@ -25,12 +26,7 @@ app.use((req, res) => {
   });
 });
 
-app.use((err, req, res, next) => {
-  const { statusCode = 500, message } = err;
-  res.status(statusCode).send({
-    message: statusCode === 500 ? "Erro no servidor" : message,
-  });
-});
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
