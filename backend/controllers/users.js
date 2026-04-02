@@ -32,9 +32,7 @@ module.exports.login = (req, res) => {
 module.exports.getUsers = (req, res) => {
   User.find({})
     .then((users) => res.json(users))
-    .catch(() =>
-      res.status(500).json({ message: "Ocorreu um erro no servidor" }),
-    );
+    .catch(() => next(err));
 };
 
 module.exports.getUserById = (req, res) => {
@@ -48,7 +46,7 @@ module.exports.getUserById = (req, res) => {
         return res.status(404).json({ message: "Usuário não encontrado" });
       }
 
-      res.status(500).json({ message: "Ocorreu um erro no servidor" });
+      next(err);
     });
 };
 
@@ -63,7 +61,7 @@ module.exports.getCurrentUser = (req, res) => {
         return res.status(404).json({ message: "Usuário não encontrado" });
       }
 
-      res.status(500).json({ message: "Ocorreu um erro no servidor" });
+      next(err);
     });
 };
 
@@ -76,7 +74,7 @@ module.exports.createUser = (req, res) => {
       if (err.name === "ValidationError") {
         return res.status(400).json({ message: "Dados inválidos" });
       }
-      res.status(500).json({ message: "Ocorreu um erro no servidor" });
+      next(err);
     });
 };
 
@@ -105,7 +103,7 @@ module.exports.updateUserProfile = (req, res) => {
       if (err.name === "DocumentNotFoundError") {
         return res.status(404).json({ message: "Usuário não encontrado" });
       }
-      res.status(500).json({ message: "Ocorreu um erro no servidor" });
+      next(err);
     });
 };
 
@@ -123,6 +121,6 @@ module.exports.updateUserAvatar = (req, res) => {
       if (err.name === "DocumentNotFoundError") {
         return res.status(404).json({ message: "Usuário não encontrado" });
       }
-      res.status(500).json({ message: "Ocorreu um erro no servidor" });
+      next(err);
     });
 };
