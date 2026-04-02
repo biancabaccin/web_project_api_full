@@ -2,13 +2,19 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { login, createUser } = require("./controllers/users");
 const auth = require("./middlewares/auth");
+
 const errorHandler = require("./middlewares/errorHandler");
 const { errors } = require("celebrate");
 const { validateSignup, validateSignin } = require("./middlewares/validator");
 
+const logRequests = require("./middlewares/logRequests");
+const logErrors = require("./middlewares/logErrors");
+
 const app = express();
 
 app.use(express.json());
+
+app.use(logRequests);
 
 app.post("/signin", validateSignin, login);
 app.post("/signup", validateSignup, createUser);
@@ -29,6 +35,7 @@ app.use((req, res) => {
 });
 
 app.use(errors());
+app.use(logErrors);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
