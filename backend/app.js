@@ -3,13 +3,15 @@ const mongoose = require("mongoose");
 const { login, createUser } = require("./controllers/users");
 const auth = require("./middlewares/auth");
 const errorHandler = require("./middlewares/errorHandler");
+const { errors } = require("celebrate");
+const { validateSignup, validateSignin } = require("./middlewares/validator");
 
 const app = express();
 
 app.use(express.json());
 
-app.post("/signin", login);
-app.post("/signup", createUser);
+app.post("/signin", validateSignin, login);
+app.post("/signup", validateSignup, createUser);
 
 mongoose.connect("mongodb://localhost:27017/aroundb");
 
@@ -26,6 +28,7 @@ app.use((req, res) => {
   });
 });
 
+app.use(errors());
 app.use(errorHandler);
 
 app.listen(PORT, () => {
