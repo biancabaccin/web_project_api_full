@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const { login, createUser } = require("./controllers/users");
 const auth = require("./middlewares/auth");
@@ -11,6 +12,9 @@ const logRequests = require("./middlewares/logRequests");
 const logErrors = require("./middlewares/logErrors");
 
 const app = express();
+
+app.use(cors());
+app.options("*", cors());
 
 app.use(express.json());
 
