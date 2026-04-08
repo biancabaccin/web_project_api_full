@@ -97,7 +97,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "https://around-api.pt-br.tripleten-services.com/v1",
+  baseUrl: "https://webs.vc.chickenkiller.com/api",
   headers: {
     "Content-Type": "application/json",
   },

@@ -56,7 +56,7 @@ class ApiAuth {
 }
 
 const apiAuth = new ApiAuth({
-  baseUrl: "https://se-register-api.en.tripleten-services.com/v1",
+  baseUrl: "https://webs.vc.chickenkiller.com/api",
   headers: {
     "Content-Type": "application/json",
   },
