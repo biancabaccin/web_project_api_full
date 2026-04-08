@@ -5,6 +5,8 @@ const jwt = require("jsonwebtoken");
 module.exports.login = (req, res) => {
   const { email, password } = req.body;
 
+  const { NODE_ENV, JWT_SECRET } = process.env;
+
   User.findOne({ email })
     .select("+password")
     .then((user) => {
@@ -17,9 +19,11 @@ module.exports.login = (req, res) => {
           return res.status(401).json({ message: "Email ou senha incorretos" });
         }
 
-        const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-          expiresIn: "7d",
-        });
+        const token = jwt.sign(
+          { _id: user._id },
+          NODE_ENV === "production" ? JWT_SECRET : "dev-secret",
+          { expiresIn: "7d" },
+        );
 
         return res.send({ token });
       });
