@@ -22,6 +22,12 @@ app.use(express.json());
 
 app.use(logRequests);
 
+app.get("/crash-test", () => {
+  setTimeout(() => {
+    throw new Error("O servidor travará agora");
+  }, 0);
+});
+
 app.post("/signin", validateSignin, login);
 app.post("/signup", validateSignup, createUser);
 
