@@ -6,7 +6,7 @@ A aplicação permite que usuários se registrem, façam login, editem seus perf
 
 # Principais Recursos Utilizados:
 
-## Frontend
+### Frontend
 
 - React + Vite
 - React Router
@@ -16,7 +16,7 @@ A aplicação permite que usuários se registrem, façam login, editem seus perf
 - Armazenamento de token (localStorage)
 - Integração com API
 
-## Backend
+### Backend
 
 - Node.js, Express.js
 - MongoDB, Mongoose
@@ -26,7 +26,7 @@ A aplicação permite que usuários se registrem, façam login, editem seus perf
 - Tratamento de erros (400, 401, 403, 404, 500)
 - Arquitetura modular (controllers, models, routes)
 
-## Autenticação & Segurança
+### Autenticação & Segurança
 
 - Registro e login (/signup e /signin)
 - Hash de senha (bcrypt)
@@ -34,12 +34,12 @@ A aplicação permite que usuários se registrem, façam login, editem seus perf
 - Middleware de autorização
 - Validação de email único
 
-## Regras de Negócio
+### Regras de Negócio
 
 - Usuários só podem editar seus próprios dados
 - Usuários só podem deletar seus próprios cards
 
-## Deploy & Infra
+### Deploy & Infra
 
 - Servidor em nuvem
 - Nginx
@@ -48,6 +48,6 @@ A aplicação permite que usuários se registrem, façam login, editem seus perf
 - CORS habilitado
 - Variáveis de ambiente
 
-# Confira o Projeto
+# Confira o Projeto:
 
 Acesse: https://webs.vc.chickenkiller.com/
