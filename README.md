@@ -4,7 +4,7 @@ Around the U.S. é um projeto full stack desenvolvido no programa de Web Develop
 
 A aplicação permite que usuários se registrem, façam login, editem seus perfis e interajam com cartões, podendo adicionar, remover e curtir conteúdos.
 
-# Principais Recursos Utilizados:
+## Principais Recursos Utilizados:
 
 ### Frontend
 
@@ -48,6 +48,6 @@ A aplicação permite que usuários se registrem, façam login, editem seus perf
 - CORS habilitado
 - Variáveis de ambiente
 
-# Confira o Projeto:
+## Confira o Projeto:
 
 Acesse: https://webs.vc.chickenkiller.com/
