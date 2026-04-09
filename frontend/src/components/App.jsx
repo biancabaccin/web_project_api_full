@@ -42,6 +42,8 @@ function App() {
   const [tooltipMessage, setTooltipMessage] = useState("");
 
   useEffect(() => {
+    if (!isLoggedIn) return;
+
     api
       .getUserInfo()
       .then((userData) => {
@@ -50,7 +52,7 @@ function App() {
       .catch((error) => {
         console.error("Error finding user data:", error);
       });
-  }, []);
+  }, [isLoggedIn]);
 
   function handleOpenPopup(popup) {
     setPopup(popup);
@@ -89,6 +91,8 @@ function App() {
   };
 
   useEffect(() => {
+    if (!isLoggedIn) return;
+
     api
       .getInitialCards()
       .then((cardsData) => {
@@ -97,7 +101,7 @@ function App() {
       .catch((error) => {
         console.error("Error finding cards:", error);
       });
-  }, []);
+  }, [isLoggedIn]);
 
   async function handleCardLike(card) {
     const isLiked = card.isLiked;

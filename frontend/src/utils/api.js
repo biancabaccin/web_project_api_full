@@ -17,7 +17,7 @@ class Api {
 
   _handleResponse(res) {
     if (!res.ok) {
-      return Promise.reject(`Erro: ${res.status}`);
+      return Promise.reject({ status: res.status });
     }
     return res.json().catch(() => ({}));
   }
@@ -97,7 +97,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "https://webs.vc.chickenkiller.com/api",
+  baseUrl: import.meta.env.VITE_API_URL,
   headers: {
     "Content-Type": "application/json",
   },
