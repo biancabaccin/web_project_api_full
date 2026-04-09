@@ -15,8 +15,16 @@ const logErrors = require("./middlewares/logErrors");
 
 const app = express();
 
-app.use(cors());
-app.options("*", cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:5173",
+      "https://webs.vc.chickenkiller.com",
+    ],
+    credentials: true,
+  }),
+);
 
 app.use(express.json());
 
