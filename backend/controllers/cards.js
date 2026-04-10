@@ -2,6 +2,7 @@ const Card = require("../models/card");
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
+    .sort({ createdAt: -1 })
     .then((cards) => {
       const cardsWithIsLiked = cards.map((card) => {
         const obj = card.toObject();
