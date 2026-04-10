@@ -44,7 +44,7 @@ app.post("/signup", validateSignup, createUser);
 
 mongoose.connect("mongodb://localhost:27017/aroundb");
 
-const PORT = 3001;
+const PORT = 3000;
 
 app.use(auth);
 
