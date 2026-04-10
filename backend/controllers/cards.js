@@ -2,7 +2,14 @@ const Card = require("../models/card");
 
 module.exports.getCards = (req, res, next) => {
   Card.find({})
-    .then((cards) => res.json(cards))
+    .then((cards) => {
+      const cardsWithIsLiked = cards.map((card) => {
+        const obj = card.toObject();
+        obj.isLiked = card.likes.includes(req.user._id);
+        return obj;
+      });
+      res.json(cardsWithIsLiked);
+    })
     .catch((err) => next(err));
 };
 
@@ -55,7 +62,11 @@ module.exports.likeCard = (req, res, next) =>
     { new: true },
   )
     .orFail()
-    .then((card) => res.json(card))
+    .then((card) => {
+      const cardObj = card.toObject();
+      cardObj.isLiked = card.likes.includes(req.user._id);
+      res.json(cardObj);
+    })
     .catch((err) => {
       if (err.name === "DocumentNotFoundError") {
         return res.status(404).json({ message: "Cartão não encontrado" });
@@ -70,7 +81,11 @@ module.exports.dislikeCard = (req, res, next) =>
     { new: true },
   )
     .orFail()
-    .then((card) => res.json(card))
+    .then((card) => {
+      const cardObj = card.toObject();
+      cardObj.isLiked = card.likes.includes(req.user._id);
+      res.json(cardObj);
+    })
     .catch((err) => {
       if (err.name === "DocumentNotFoundError") {
         return res.status(404).json({ message: "Cartão não encontrado" });
