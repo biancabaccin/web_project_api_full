@@ -41,19 +41,6 @@ function App() {
   const [tooltipSuccess, setTooltipSuccess] = useState(false);
   const [tooltipMessage, setTooltipMessage] = useState("");
 
-  useEffect(() => {
-    if (!isLoggedIn) return;
-
-    api
-      .getUserInfo()
-      .then((userData) => {
-        setCurrentUser(userData);
-      })
-      .catch((error) => {
-        console.error("Error finding user data:", error);
-      });
-  }, [isLoggedIn]);
-
   function handleOpenPopup(popup) {
     setPopup(popup);
   }
@@ -149,6 +136,8 @@ function App() {
 
     if (savedToken) {
       setToken(savedToken);
+
+      api.setToken(savedToken);
 
       apiAuth
         .checkToken(savedToken)

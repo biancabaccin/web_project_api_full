@@ -26,20 +26,20 @@ const userSchema = new mongoose.Schema({
       },
       message: "URL do avatar inválida",
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      validate: {
-        validator: (v) => validator.isEmail(v),
-        message: "Email inválido",
-      },
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    validate: {
+      validator: (v) => validator.isEmail(v),
+      message: "Email inválido",
     },
-    password: {
-      type: String,
-      required: true,
-      select: false,
-    },
+  },
+  password: {
+    type: String,
+    required: true,
+    select: false,
   },
 });
 

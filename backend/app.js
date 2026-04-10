@@ -13,6 +13,9 @@ const { validateSignup, validateSignin } = require("./middlewares/validator");
 const logRequests = require("./middlewares/logRequests");
 const logErrors = require("./middlewares/logErrors");
 
+const userRouter = require("./routes/users.js");
+const cardRouter = require("./routes/cards.js");
+
 const app = express();
 
 app.use(
@@ -45,8 +48,8 @@ const PORT = 3001;
 
 app.use(auth);
 
-app.use("/users", require("./routes/users.js"));
-app.use("/cards", require("./routes/cards.js"));
+app.use("/users", userRouter);
+app.use("/cards", cardRouter);
 
 app.use((req, res) => {
   res.status(404).json({

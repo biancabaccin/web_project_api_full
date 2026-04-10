@@ -48,9 +48,7 @@ class ApiAuth {
   checkToken(token) {
     return this._request("/users/me", {
       method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
     });
   }
 }

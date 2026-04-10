@@ -33,13 +33,13 @@ module.exports.login = (req, res) => {
     });
 };
 
-module.exports.getUsers = (req, res) => {
+module.exports.getUsers = (req, res, next) => {
   User.find({})
     .then((users) => res.json(users))
-    .catch(() => next(err));
+    .catch((err) => next(err));
 };
 
-module.exports.getUserById = (req, res) => {
+module.exports.getUserById = (req, res, next) => {
   const { userId } = req.params;
 
   User.findById(userId)
@@ -54,7 +54,7 @@ module.exports.getUserById = (req, res) => {
     });
 };
 
-module.exports.getCurrentUser = (req, res) => {
+module.exports.getCurrentUser = (req, res, next) => {
   const userId = req.user._id;
 
   User.findById(userId)
@@ -69,10 +69,12 @@ module.exports.getCurrentUser = (req, res) => {
     });
 };
 
-module.exports.createUser = (req, res) => {
-  const { name, about, avatar } = req.body;
+module.exports.createUser = async (req, res, next) => {
+  const { name, about, avatar, email, password } = req.body;
 
-  User.create({ name, about, avatar })
+  const hashPassword = await bcrypt.hash(password, 10);
+
+  User.create({ name, about, avatar, email, password: hashPassword })
     .then((user) => res.status(201).json(user))
     .catch((err) => {
       if (err.name === "ValidationError") {
@@ -82,36 +84,21 @@ module.exports.createUser = (req, res) => {
     });
 };
 
-module.exports.updateUserProfile = (req, res) => {
+module.exports.updateUserProfile = (req, res, next) => {
   const { name, about } = req.body;
-  const { userId } = req.params;
-  const currentUserId = req.user._id;
-
-  if (String(userId) !== String(currentUserId)) {
-    return res.status(403).json({
-      message: "Você só pode editar seu próprio perfil",
-    });
-  }
 
   User.findByIdAndUpdate(
-    userId,
+    req.user._id,
     { name, about },
     { new: true, runValidators: true },
   )
+    .select("-password")
     .orFail()
-    .then((user) => res.json(user))
-    .catch((err) => {
-      if (err.name === "ValidationError") {
-        return res.status(400).json({ message: "Dados inválidos" });
-      }
-      if (err.name === "DocumentNotFoundError") {
-        return res.status(404).json({ message: "Usuário não encontrado" });
-      }
-      next(err);
-    });
+    .then((user) => res.send(user))
+    .catch(next);
 };
 
-module.exports.updateUserAvatar = (req, res) => {
+module.exports.updateUserAvatar = (req, res, next) => {
   const { avatar } = req.body;
   const userId = req.user._id;
 

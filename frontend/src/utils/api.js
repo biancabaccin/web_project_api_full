@@ -5,11 +5,13 @@ class Api {
   }
 
   _request(endpoint, options = {}) {
+    const token = this.token || localStorage.getItem("jwt");
+
     return fetch(`${this._baseUrl}${endpoint}`, {
       method: options.method || "GET",
       headers: {
         ...this._headers,
-        Authorization: `Bearer ${this.token || localStorage.getItem("jwt")}`,
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
       },
       body: options.body ? JSON.stringify(options.body) : undefined,
     }).then(this._handleResponse);
