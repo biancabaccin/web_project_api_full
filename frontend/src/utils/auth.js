@@ -54,7 +54,7 @@ class ApiAuth {
 }
 
 const apiAuth = new ApiAuth({
-  baseUrl: "api.webs.vc.chickenkiller.com",
+  baseUrl: "https://api.webs.vc.chickenkiller.com",
   headers: {
     "Content-Type": "application/json",
   },
