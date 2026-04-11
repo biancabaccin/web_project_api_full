@@ -99,7 +99,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: import.meta.env.VITE_API_URL,
+  baseUrl: "api.webs.vc.chickenkiller.com",
   headers: {
     "Content-Type": "application/json",
   },
