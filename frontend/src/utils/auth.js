@@ -7,6 +7,7 @@ class ApiAuth {
   _request(endpoint, options = {}) {
     return fetch(`${this._baseUrl}${endpoint}`, {
       method: options.method || "GET",
+      credentials: true,
       headers: {
         ...this._headers,
         ...options.headers,
