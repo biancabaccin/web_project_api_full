@@ -9,7 +9,6 @@ class Api {
 
     return fetch(`${this._baseUrl}${endpoint}`, {
       method: options.method || "GET",
-      credentials: "include",
       headers: {
         ...this._headers,
         ...(token ? { Authorization: `Bearer ${token}` } : {}),

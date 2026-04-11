@@ -18,19 +18,33 @@ const cardRouter = require("./routes/cards.js");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  }),
-);
+const allowedCors = [
+  "https://webs.vc.chickenkiller.com",
+  "http://localhost:3000",
+  "http://localhost:5173",
+];
 
-// const allowedCors = [
-//   "http://localhost:3000",
-//   "http://localhost:5173",
-//   "https://webs.vc.chickenkiller.com",
-// ];
+const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
+
+app.use(function (req, res, next) {
+  const { origin } = req.headers;
+  const { method } = req;
+
+  if (allowedCors.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin);
+  }
+
+  if (method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", DEFAULT_ALLOWED_METHODS);
+
+    const requestHeaders = req.headers["access-control-request-headers"];
+    res.header("Access-Control-Allow-Headers", requestHeaders);
+
+    return res.end();
+  }
+
+  next();
+});
 
 // app.use(
 //   cors({
