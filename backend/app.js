@@ -20,14 +20,28 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:5173",
-      "https://webs.vc.chickenkiller.com",
-    ],
-    credentials: true,
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   }),
 );
+
+// const allowedCors = [
+//   "http://localhost:3000",
+//   "http://localhost:5173",
+//   "https://webs.vc.chickenkiller.com",
+// ];
+
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:3000",
+//       "http://localhost:5173",
+//       "https://webs.vc.chickenkiller.com",
+//     ],
+//     credentials: true,
+//   }),
+// );
 
 app.use(express.json());
 
