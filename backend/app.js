@@ -20,44 +20,44 @@ const app = express();
 
 app.use(express.json());
 
-// const allowedCors = [
-//   "https://webs.vc.chickenkiller.com",
-//   "http://localhost:3000",
-//   "http://localhost:5173",
-// ];
+const allowedCors = [
+  "https://webs.vc.chickenkiller.com",
+  "http://localhost:3000",
+  "http://localhost:5173",
+];
 
-// const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
+const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
 
-// app.use(function (req, res, next) {
-//   const { origin } = req.headers;
-//   const { method } = req;
+app.use(function (req, res, next) {
+  const { origin } = req.headers;
+  const { method } = req;
 
-//   if (allowedCors.includes(origin)) {
-//     res.header("Access-Control-Allow-Origin", origin);
-//   }
+  if (allowedCors.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin);
+  }
 
-//   if (method === "OPTIONS") {
-//     res.header("Access-Control-Allow-Methods", DEFAULT_ALLOWED_METHODS);
+  if (method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", DEFAULT_ALLOWED_METHODS);
 
-//     const requestHeaders = req.headers["access-control-request-headers"];
-//     res.header("Access-Control-Allow-Headers", requestHeaders);
+    const requestHeaders = req.headers["access-control-request-headers"];
+    res.header("Access-Control-Allow-Headers", requestHeaders);
 
-//     return res.end();
-//   }
+    return res.end();
+  }
 
-//   next();
-// });
+  next();
+});
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:5173",
-      "https://webs.vc.chickenkiller.com",
-    ],
-    credentials: true,
-  }),
-);
+// app.use(
+//   cors({
+//     origin: [
+//       "http://localhost:3000",
+//       "http://localhost:5173",
+//       "https://webs.vc.chickenkiller.com",
+//     ],
+//     credentials: true,
+//   }),
+// );
 
 app.use(logRequests);
 
