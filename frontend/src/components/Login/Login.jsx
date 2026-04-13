@@ -42,6 +42,7 @@ function Login({ onLogin }) {
           value={formData.password}
           onChange={handleChange}
           placeholder="Senha"
+          minLength={8}
           required
         />
 

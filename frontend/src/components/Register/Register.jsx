@@ -41,7 +41,7 @@ const Register = ({ onRegister }) => {
           placeholder="Senha"
           value={data.password}
           onChange={handleChange}
-          minLength={6}
+          minLength={8}
           required
         />
 
