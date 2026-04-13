@@ -70,9 +70,9 @@ app.get("/crash-test", () => {
 app.post("/signin", validateSignin, login);
 app.post("/signup", validateSignup, createUser);
 
-mongoose.connect("mongodb://localhost:27017/aroundb");
+mongoose.connect(process.env.MONGO_URI);
 
-const PORT = 3001;
+const PORT = process.env.PORT;
 
 app.use(auth);
 
