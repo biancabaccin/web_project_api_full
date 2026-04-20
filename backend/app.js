@@ -48,17 +48,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-// app.use(
-//   cors({
-//     origin: [
-//       "http://localhost:3000",
-//       "http://localhost:5173",
-//       "https://webs.vc.chickenkiller.com",
-//     ],
-//     credentials: true,
-//   }),
-// );
-
 app.use(logRequests);
 
 app.get("/crash-test", () => {
