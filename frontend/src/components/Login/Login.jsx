@@ -23,7 +23,7 @@ function Login({ onLogin }) {
 
   return (
     <div className="login">
-      <h1 className="login__title">Entrar</h1>
+      <h1 className="login__title">Log in</h1>
 
       <form className="login__fildset" onSubmit={handleSubmit}>
         <input
@@ -41,17 +41,17 @@ function Login({ onLogin }) {
           type="password"
           value={formData.password}
           onChange={handleChange}
-          placeholder="Senha"
+          placeholder="Password"
           minLength={8}
           required
         />
 
         <button className="login__submit-button" type="submit">
-          Entrar
+          Log in
         </button>
 
         <Link to="/signup" className="login__register-button">
-          Ainda não é membro? Inscreva-se aqui!
+          Not a member yet? Sign up!
         </Link>
       </form>
     </div>

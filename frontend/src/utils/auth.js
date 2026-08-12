@@ -24,7 +24,7 @@ class ApiAuth {
 
     if (contentType && contentType.includes("application/json")) {
       return res.json().catch(() => {
-        throw new Error("Resposta inválida do servidor");
+        throw new Error("Invalid server response");
       });
     }
 

@@ -26,7 +26,7 @@ export default function Header({ location, isLoggedIn, userEmail, onSignOut }) {
             className="header__mobile-signout"
             onClick={handleSignOutClick}
           >
-            Sair
+            Log out
           </button>
         </div>
       )}
@@ -35,19 +35,19 @@ export default function Header({ location, isLoggedIn, userEmail, onSignOut }) {
         <div className="header__container">
           <img
             src={logo}
-            alt="Logotipo Around the U.S."
+            alt="Around the U.S. Logo"
             className="logo header__logo"
           />
 
           <div className="header__right-box">
             {location.pathname === "/signin" && (
               <Link to="/signup" className="header__link">
-                Entrar
+                Sign up
               </Link>
             )}
             {location.pathname === "/signup" && (
               <Link to="/signin" className="header__link">
-                Faça o login
+                Log in
               </Link>
             )}
             {isLoggedIn &&
@@ -59,13 +59,13 @@ export default function Header({ location, isLoggedIn, userEmail, onSignOut }) {
                     className="header__signout-button"
                     onClick={onSignOut}
                   >
-                    Sair
+                    Log out
                   </button>
 
                   <button className="header__list-button" onClick={toggleMenu}>
                     <img
                       src={isMenuOpen ? closeIcon : menuIcon}
-                      alt={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+                      alt={isMenuOpen ? "Close menu" : "Open menu"}
                       width={30}
                       height={30}
                     />
