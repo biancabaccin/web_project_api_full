@@ -22,7 +22,7 @@ const Register = ({ onRegister }) => {
 
   return (
     <div className="register">
-      <h2 className="register__title">Inscrever-se</h2>
+      <h2 className="register__title">Sign up</h2>
 
       <form className="register__fildset" onSubmit={handleSubmit}>
         <input
@@ -38,7 +38,7 @@ const Register = ({ onRegister }) => {
           className="register__input"
           type="password"
           name="password"
-          placeholder="Senha"
+          placeholder="Password"
           value={data.password}
           onChange={handleChange}
           minLength={8}
@@ -46,11 +46,11 @@ const Register = ({ onRegister }) => {
         />
 
         <button className="register__submit-button" type="submit">
-          Inscrever-se
+          Sign up
         </button>
 
         <Link to="/signin" className="register__sigin-button">
-          Já é um membro? Faça o login aqui!
+          Already a member? Log in!
         </Link>
       </form>
     </div>
