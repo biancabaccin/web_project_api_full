@@ -182,13 +182,11 @@ function App() {
     } catch (err) {
       setTooltipSuccess(false);
       if (err.status === 400) {
-        setTooltipMessage("Um ou mais campos não foram fornecidos.");
+        setTooltipMessage("One or more fields were not provided.");
       } else if (err.status === 401) {
-        setTooltipMessage(
-          "O usuário com o e-mail especificado não foi encontrado.",
-        );
+        setTooltipMessage("No account was found with that email address.");
       } else {
-        setTooltipMessage("Erro ao entrar! Verifique seus dados.");
+        setTooltipMessage("Error signing in! Please check your information.");
       }
       setShowTooltip(true);
     }
@@ -207,14 +205,14 @@ function App() {
     try {
       await apiAuth.register(email, password);
       setTooltipSuccess(true);
-      setTooltipMessage("Vitória! Agora você está registrado.");
+      setTooltipMessage("Victory! You're all set!");
       setShowTooltip(true);
     } catch (error) {
       setTooltipSuccess(false);
       if (error.status === 400) {
-        setTooltipMessage("Um dos campos foi preenchido incorretamente.");
+        setTooltipMessage("One or more fields are invalid.");
       } else {
-        setTooltipMessage("Ops, algo deu errado! Tente novamente, por favor.");
+        setTooltipMessage("Oops, something went wrong! Please try again.");
       }
       setShowTooltip(true);
     }
