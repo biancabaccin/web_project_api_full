@@ -29,7 +29,7 @@ export default function Main({
           onClick={() => onOpenPopup(editAvatarPopup)}
         >
           <img
-            src={currentUser.avatar}
+            src={currentUser.avatar || null}
             alt="Foto de perfil do usuário"
             className="profile__image"
           />

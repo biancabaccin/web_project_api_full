@@ -6,8 +6,8 @@ export default function EditProfile() {
   const { currentUser, handleUpdateUser, isLoadingUserInfo } =
     useContext(CurrentUserContext);
 
-  const [name, setName] = useState(currentUser.name);
-  const [description, setDescription] = useState(currentUser.about);
+  const [name, setName] = useState(currentUser.name || "");
+  const [description, setDescription] = useState(currentUser.about || "");
 
   const handleNameChange = (event) => {
     setName(event.target.value);
