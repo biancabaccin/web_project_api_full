@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
           v,
         );
       },
-      message: "URL do avatar inválida",
+      message: "Invalid avatar URL",
     },
   },
   email: {
@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
     unique: true,
     validate: {
       validator: (v) => validator.isEmail(v),
-      message: "Email inválido",
+      message: "Invalid email",
     },
   },
   password: {

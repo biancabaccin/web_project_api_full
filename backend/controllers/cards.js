@@ -22,7 +22,7 @@ module.exports.createCard = (req, res, next) => {
     .then((card) => res.status(201).json(card))
     .catch((err) => {
       if (err.name === "ValidationError") {
-        return res.status(400).json({ message: "Dados inválidos" });
+        return res.status(400).json({ message: "Invalid data" });
       }
       next(err);
     });
@@ -37,20 +37,20 @@ module.exports.deleteCard = (req, res, next) => {
     .then((card) => {
       if (String(card.owner) !== String(userId)) {
         return res.status(403).json({
-          message: "Você não tem permissão para excluir este cartão",
+          message: "You do not have permission to delete this card",
         });
       }
 
       return Card.findByIdAndDelete(cardId).then(() =>
-        res.send({ message: "Cartão deletado com sucesso" }),
+        res.send({ message: "Card deleted successfully" }),
       );
     })
     .catch((err) => {
       if (err.name === "CastError") {
-        return res.status(400).json({ message: "ID inválido" });
+        return res.status(400).json({ message: "Invalid ID" });
       }
       if (err.name === "DocumentNotFoundError") {
-        return res.status(404).json({ message: "Cartão não encontrado" });
+        return res.status(404).json({ message: "Card not found" });
       }
       next(err);
     });
@@ -70,7 +70,7 @@ module.exports.likeCard = (req, res, next) =>
     })
     .catch((err) => {
       if (err.name === "DocumentNotFoundError") {
-        return res.status(404).json({ message: "Cartão não encontrado" });
+        return res.status(404).json({ message: "Card not found" });
       }
       next(err);
     });
@@ -89,7 +89,7 @@ module.exports.dislikeCard = (req, res, next) =>
     })
     .catch((err) => {
       if (err.name === "DocumentNotFoundError") {
-        return res.status(404).json({ message: "Cartão não encontrado" });
+        return res.status(404).json({ message: "Card not found" });
       }
       next(err);
     });
