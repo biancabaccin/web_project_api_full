@@ -6,18 +6,17 @@ const userSchema = new mongoose.Schema({
     type: String,
     minlength: 2,
     maxlength: 30,
-    default: "Jacques Cousteau",
+    default: "Your Name :)",
   },
   about: {
     type: String,
     minlength: 2,
     maxlength: 30,
-    default: "Explorer",
+    default: "Who are you?",
   },
   avatar: {
     type: String,
-    default:
-      "https://practicum-content.s3.us-west-1.amazonaws.com/resources/moved_avatar_1604080799.jpg",
+    default: "https://picsum.photos/350",
     validate: {
       validator: function (v) {
         return /^https?:\/\/(www\.)?[a-zA-Z0-9._~:/?%#\[\]@!$&'()*+,;=-]+#?$/.test(

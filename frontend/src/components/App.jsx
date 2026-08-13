@@ -18,7 +18,13 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import InfoTooltip from "../components/InfoTooltip/InfoTooltip";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({
+    name: "",
+    about: "",
+    avatar: "",
+    email: "",
+    _id: "",
+  });
   const [popup, setPopup] = useState(null);
   const [cards, setCards] = useState([]);
 
@@ -176,6 +182,8 @@ function App() {
 
         const userInfo = await apiAuth.checkToken(data.token);
         setUserData({ email: userInfo.email, _id: userInfo._id });
+
+        setCurrentUser(userInfo);
 
         navigate("/");
       }
