@@ -24,7 +24,7 @@ export default function NewCard({ onAddPlaceSubmit, isLoading }) {
         <input
           className="popup__input"
           type="text"
-          placeholder="Título"
+          placeholder="Title"
           id="cards-title"
           name="name"
           minLength="2"
@@ -40,7 +40,7 @@ export default function NewCard({ onAddPlaceSubmit, isLoading }) {
         <input
           className="popup__input"
           type="url"
-          placeholder="URL da imagem"
+          placeholder="Image URL"
           id="cards-link"
           name="link"
           required
@@ -55,7 +55,7 @@ export default function NewCard({ onAddPlaceSubmit, isLoading }) {
         type="submit"
         disabled={isLoading}
       >
-        {isLoading ? "Salvando..." : "Criar"}
+        {isLoading ? "Saving..." : "Create"}
       </button>
     </form>
   );

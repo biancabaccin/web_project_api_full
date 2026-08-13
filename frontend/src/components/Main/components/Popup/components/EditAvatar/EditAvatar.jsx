@@ -25,7 +25,7 @@ export default function EditAvatar() {
           ref={avatarRef}
           className="popup__input"
           type="url"
-          placeholder="URL da imagem"
+          placeholder="Image URL"
           id="photo-url"
           name="link"
           required
@@ -38,7 +38,7 @@ export default function EditAvatar() {
         type="submit"
         disabled={isLoadingAvatar}
       >
-        {isLoadingAvatar ? "Salvando..." : "Salvar"}
+        {isLoadingAvatar ? "Saving..." : "Save"}
       </button>
     </form>
   );

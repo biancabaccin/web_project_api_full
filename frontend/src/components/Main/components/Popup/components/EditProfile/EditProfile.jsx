@@ -33,7 +33,7 @@ export default function EditProfile() {
         <input
           className="popup__input"
           type="text"
-          placeholder="Nome"
+          placeholder="Name"
           id="name"
           name="name"
           minLength="2"
@@ -49,7 +49,7 @@ export default function EditProfile() {
         <input
           className="popup__input"
           type="text"
-          placeholder="Sobre mim"
+          placeholder="About me"
           id="about"
           name="about"
           minLength="2"
@@ -66,7 +66,7 @@ export default function EditProfile() {
         type="submit"
         disabled={isLoadingUserInfo}
       >
-        {isLoadingUserInfo ? "Salvando..." : "Salvar"}
+        {isLoadingUserInfo ? "Saving..." : "Save"}
       </button>
     </form>
   );
