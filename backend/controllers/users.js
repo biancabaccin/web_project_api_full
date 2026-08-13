@@ -11,12 +11,14 @@ module.exports.login = (req, res) => {
     .select("+password")
     .then((user) => {
       if (!user) {
-        return res.status(401).json({ message: "Email ou senha incorretos" });
+        return res.status(401).json({ message: "Incorrect email or password" });
       }
 
       return bcrypt.compare(password, user.password).then((matched) => {
         if (!matched) {
-          return res.status(401).json({ message: "Email ou senha incorretos" });
+          return res
+            .status(401)
+            .json({ message: "Incorrect email or password" });
         }
 
         const token = jwt.sign(
@@ -29,7 +31,7 @@ module.exports.login = (req, res) => {
       });
     })
     .catch(() => {
-      res.status(401).send({ message: "Email ou senha incorretos" });
+      res.status(401).send({ message: "Incorrect email or password" });
     });
 };
 
@@ -47,7 +49,7 @@ module.exports.getUserById = (req, res, next) => {
     .then((user) => res.json(user))
     .catch((err) => {
       if (err.name === "DocumentNotFoundError") {
-        return res.status(404).json({ message: "Usuário não encontrado" });
+        return res.status(404).json({ message: "User not found" });
       }
 
       next(err);
@@ -62,7 +64,7 @@ module.exports.getCurrentUser = (req, res, next) => {
     .then((user) => res.json(user))
     .catch((err) => {
       if (err.name === "DocumentNotFoundError") {
-        return res.status(404).json({ message: "Usuário não encontrado" });
+        return res.status(404).json({ message: "User not found" });
       }
 
       next(err);
@@ -78,7 +80,7 @@ module.exports.createUser = async (req, res, next) => {
     .then((user) => res.status(201).json(user))
     .catch((err) => {
       if (err.name === "ValidationError") {
-        return res.status(400).json({ message: "Dados inválidos" });
+        return res.status(400).json({ message: "Invalid data" });
       }
       next(err);
     });
@@ -107,10 +109,10 @@ module.exports.updateUserAvatar = (req, res, next) => {
     .then((user) => res.json(user))
     .catch((err) => {
       if (err.name === "ValidationError") {
-        return res.status(400).json({ message: "Dados inválidos" });
+        return res.status(400).json({ message: "Invalid data" });
       }
       if (err.name === "DocumentNotFoundError") {
-        return res.status(404).json({ message: "Usuário não encontrado" });
+        return res.status(404).json({ message: "User not found" });
       }
       next(err);
     });

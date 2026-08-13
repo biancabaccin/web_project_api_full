@@ -13,10 +13,10 @@ const cardSchema = new mongoose.Schema({
     validate: {
       validator: function (v) {
         return /^https?:\/\/(www\.)?[a-zA-Z0-9._~:/?%#\[\]@!$&'()*+,;=-]+#?$/.test(
-          v
+          v,
         );
       },
-      message: "URL da imagem inválida",
+      message: "Invalid image URL",
     },
   },
   owner: {

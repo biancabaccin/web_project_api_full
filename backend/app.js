@@ -52,7 +52,7 @@ app.use(logRequests);
 
 app.get("/crash-test", () => {
   setTimeout(() => {
-    throw new Error("O servidor travará agora");
+    throw new Error("The server will crash now");
   }, 0);
 });
 
@@ -70,7 +70,7 @@ app.use("/cards", cardRouter);
 
 app.use((req, res) => {
   res.status(404).json({
-    message: "A solicitação não foi encontrada",
+    message: "The request was not found",
   });
 });
 
@@ -79,5 +79,5 @@ app.use(logErrors);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

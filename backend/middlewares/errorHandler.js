@@ -2,6 +2,6 @@ module.exports = (err, req, res, next) => {
   const { statusCode = 500, message } = err;
 
   res.status(statusCode).send({
-    message: statusCode === 500 ? "Erro no servidor" : message,
+    message: statusCode === 500 ? "Server error" : message,
   });
 };

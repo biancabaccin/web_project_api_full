@@ -30,7 +30,7 @@ export default function Main({
         >
           <img
             src={currentUser.avatar || null}
-            alt="Foto de perfil do usuário"
+            alt="User profile photo"
             className="profile__image"
           />
         </button>
