@@ -21,7 +21,7 @@ const app = express();
 app.use(express.json());
 
 const allowedCors = [
-  "https://webs.vc.chickenkiller.com",
+  "web-project-api-full-seven-rho.vercel.app",
   "http://localhost:3000",
   "http://localhost:5173",
 ];
