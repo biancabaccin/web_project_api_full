@@ -1,6 +1,6 @@
 # Around de U.S.
 
-Around the U.S. is a full-stack web application developed as part of the TripleTen Web Development Program. The project focuses on building a complete web application by integrating a React frontend with a Node.js, Express, and MongoDB backend.
+**Around the U.S.** is a full-stack web application developed as part of the TripleTen Web Development Program. The project focuses on building a complete web application by integrating a React frontend with a Node.js, Express, and MongoDB backend.
 
 The application allows users to register, log in, edit their profiles, and interact with cards by adding, removing, and liking content.
 
@@ -90,4 +90,4 @@ This project was created to practice:
 
 ## Author
 
-Developed by Bianca Baccin as part of the TripleTen Web Development Program.
+Developed by **Bianca Baccin** as part of the TripleTen Web Development Program.
