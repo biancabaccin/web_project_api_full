@@ -1,53 +1,93 @@
-# Tripleten web_project_api_full
+# Around de U.S.
 
-Around the U.S. é um projeto full stack desenvolvido no programa de Web Development da TripleTen, com foco na construção de uma aplicação completa com frontend em React e backend em Node.js + Express + MongoDB.
+Around the U.S. is a full-stack web application developed as part of the TripleTen Web Development Program. The project focuses on building a complete web application by integrating a React frontend with a Node.js, Express, and MongoDB backend.
 
-A aplicação permite que usuários se registrem, façam login, editem seus perfis e interajam com cartões, podendo adicionar, remover e curtir conteúdos.
+The application allows users to register, log in, edit their profiles, and interact with cards by adding, removing, and liking content.
 
-## Principais Recursos Utilizados:
+## Live Demo
+
+Visit the live demo here: **[Around the U.S.](https://web-project-api-full-seven-rho.vercel.app/)**
+
+## Technologies:
 
 ### Frontend
 
-- React + Vite
+- React
+- Vite
 - React Router
-- HTML, CSS (Flexbox, Grid, Responsivo)
-- JavaScript (DOM, Classes, Validação)
+- JavaScript
+- HTML5
+- CSS3
+- Flexbox
+- CSS Grid
+- Responsive Design
 - Protected Routes
-- Armazenamento de token (localStorage)
-- Integração com API
+- LocalStorage
+- REST API Integration
 
 ### Backend
 
-- Node.js, Express.js
-- MongoDB, Mongoose
-- API REST
-- CRUD de usuários e cards
-- Validação com Validator e Celebrate (Joi)
-- Tratamento de erros (400, 401, 403, 404, 500)
-- Arquitetura modular (controllers, models, routes)
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- REST API
+- CRUD operations for users and cards
+- Validator
+- Celebrate / Joi
+- Modular architecture with controllers, models, and routes
 
-### Autenticação & Segurança
+### Authentication & Security
 
-- Registro e login (/signup e /signin)
-- Hash de senha (bcrypt)
-- Autenticação com JWT
-- Middleware de autorização
-- Validação de email único
+- User registration through /signup
+- User login through /signin
+- Password hashing with bcrypt
+- JWT-based authentication
+- Authorization middleware
+- Unique email validation
+- Protected routes
+- Access control for application resources
 
-### Regras de Negócio
+### Business Rules
 
-- Usuários só podem editar seus próprios dados
-- Usuários só podem deletar seus próprios cards
+The application follows business rules to ensure proper data management:
 
-### Deploy & Infra
+- Users can only edit their own profile information
+- Users can only delete their own cards
+- Users can like and unlike cards
+- User emails must be unique
 
-- Servidor em nuvem
+### Deployment & Infrastructure
+
+- Cloud server
 - Nginx
-- PM2 (restart automático)
-- HTTPS (SSL)
-- CORS habilitado
-- Variáveis de ambiente
+- PM2 for process management and automatic restarts
+- HTTPS / SSL
+- CORS
+- Environment variables
 
-## Confira o Projeto:
+### Error Handling
 
-Acesse: https://webs.vc.chickenkiller.com/
+- 400 — Bad Request
+- 401 — Unauthorized
+- 403 — Forbidden
+- 404 — Not Found
+- 500 — Internal Server Error
+
+## Project Purpose
+
+This project was created to practice:
+
+- Full-stack web development
+- Building REST APIs
+- Frontend and backend integration
+- Authentication and authorization
+- Database management with MongoDB
+- React application development
+- Complete CRUD functionality
+- Data validation and error handling
+- Deploying web applications to a production environment
+
+## Author
+
+Developed by Bianca Baccin as part of the TripleTen Web Development Program.
